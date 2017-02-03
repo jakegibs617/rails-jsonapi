@@ -1,24 +1,17 @@
-# README
+1. git clone...
+2. bundle
+3. rake db:create && rake db:migrate
+4. rails s
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Post to the api:
 
-* Ruby version
+$ curl -H "Content-Type: application/vnd.api+json" \
+-H "Accept: application/vnd.api+json" \
+-X POST -d '{"data": {"type": "todos", "attributes": { "title": "Test title", "description": "Test description" }}}' http://localhost:3000/todos -i
 
-* System dependencies
+Get from the api:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ curl -H "Content-Type: application/vnd.api+json" \
+-H "Accept: application/vnd.api+json" \
+http://localhost:3000/todos -i
